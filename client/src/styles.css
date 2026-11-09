@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'DM Sans', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-feature-settings: 'ss01' on;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+button, select, input { font: inherit; }
+button { cursor: pointer; }
+.hero-pattern {
+  background:
+    radial-gradient(ellipse at 82% 36%, rgba(196, 181, 253, .31), transparent 34%),
+    radial-gradient(ellipse at 12% 18%, rgba(237, 233, 254, .82), transparent 48%),
+    linear-gradient(180deg, #f8f5ff 0%, #fbfaff 95%);
+}
+.dark .hero-pattern {
+  background:
+    radial-gradient(ellipse at 82% 36%, rgba(109, 40, 217, .2), transparent 34%),
+    radial-gradient(ellipse at 12% 18%, rgba(67, 38, 104, .3), transparent 48%),
+    linear-gradient(180deg, #20182d 0%, #171221 95%);
+}
+select option { color: #1f1933; }
