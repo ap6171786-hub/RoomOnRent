@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/accountdialog.tsx","./src/components/authdialog.tsx","./src/components/roomdetailsdialog.tsx","./src/lib/account.ts","./src/lib/api.ts","./src/lib/auth.test.ts","./src/lib/auth.ts"],"version":"5.9.3"}
