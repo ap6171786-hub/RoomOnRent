@@ -1,0 +1,28 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    command: ["mongod", "--replSet", "rs0", "--bind_ip_all"]
+    volumes:
+      - mongo-data:/data/db
+  mongo-init:
+    image: mongo:7
+    depends_on:
+      - mongo
+    restart: "no"
+    entrypoint:
+      - bash
+      - -c
+      - 'until mongosh --host mongo:27017 --quiet --eval "db.adminCommand({ ping: 1 })"; do sleep 2; done; mongosh --host mongo:27017 --quiet --eval "try { rs.status() } catch (e) { rs.initiate({ _id: ''rs0'', members: [{ _id: 0, host: ''localhost:27017'' }] }) }"'
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+volumes:
+  mongo-data:
+  redis-data:
